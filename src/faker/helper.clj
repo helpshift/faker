@@ -29,7 +29,7 @@
 
 (defn- make-stream-of
   "Useful in generating lazy infinite sentences/paras/bodys"
-  [f args min-range max-range sep end-sep]
+  [f args [min-range max-range] sep end-sep]
   (map (partial stringify-stream
                 f
                 args
@@ -49,41 +49,35 @@
 
 (defn lazy-sentences
   "Lazy sequence of random sentences."
-  [{:keys [min-words max-words]
+  [{:keys [words-range]
     :as args
-    :or {min-words 4
-         max-words 10}}]
+    :or {words-range [4 10]}}]
   (make-stream-of lazy-words
                   args
-                  min-words
-                  max-words
+                  words-range
                   " "
                   "."))
 
 (defn lazy-paragraphs
   "Lazy sequence of random paragraphs."
-  [{:keys [min-sentences max-sentences]
+  [{:keys [sentences-range]
     :as args
-    :or {min-sentences 3
-         max-sentences 5}}]
+    :or {sentences-range [3 5]}}]
   (make-stream-of lazy-sentences
                   args
-                  min-sentences
-                  max-sentences
+                  sentences-range
                   " "
                   ""))
 
 (defn lazy-bodys
   "Lazy sequence of random bodys."
-  [{:keys [min-paras max-paras
+  [{:keys [paras-range
            para-sep]
     :as args
     :or {para-sep "<div> <br /> </div>"
-         min-paras 1
-         max-paras 5}}]
+         paras-range [1 5]}}]
   (make-stream-of lazy-paragraphs
                   args
-                  min-paras
-                  max-paras
+                  paras-range
                   para-sep
                   ""))

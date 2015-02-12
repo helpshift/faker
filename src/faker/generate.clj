@@ -10,7 +10,8 @@
 ;; Public Functions to generate a list of word/sentence/paragraph/body
 
 (defn words
-  "Returns n word string list
+  "Returns n word string list.
+
    n => number of words
         Default 1.
    lang => :en, :hi etc
@@ -25,7 +26,9 @@
    (take n (h/lazy-words args))))
 
 (defn sentences
-  "Gets n sentence string list of words between [min-words,max-words]
+  "Gets n sentence string list of words.
+
+   words-range => (Optional) Sequence of [min-words,max-words]
    n => number of sentences
         Default 1.
    lang => :en, :hi etc
@@ -35,14 +38,17 @@
   ([]
    (sentences {}))
   ([{:keys [n
-            min-words max-words
+            words-range
             lang fallback-lang]
      :or {n 1}
      :as args}]
    (take n (h/lazy-sentences args))))
 
 (defn paragraphs
-  "Gets n paragraph string list of sentences between [min-sentences,max-sentences]
+  "Gets n paragraph string list of sentences.
+
+   words-range => (Optional) Sequence of [min-words,max-words]
+   sentences-range => (Optional) Sequence of [min-sentences,max-sentences]
    n => number of paragraphs
         Default 1.
    lang => :en, :hi etc
@@ -52,15 +58,22 @@
   ([]
    (paragraphs {}))
   ([{:keys [n
-            min-words max-words
-            min-sentences max-sentences
+            words-range sentences-range
             lang fallback-lang]
      :or {n 1}
      :as args}]
    (take n (h/lazy-paragraphs args))))
 
 (defn bodys
-  "Gets n body string list of paragraphs between [min-paras,max-paras]
+  "Gets n body string list of paragraphs.
+
+   para-sep => (Optional) String seperator between paras.
+               Default: \"<div> <br /> </div>\"
+
+   words-range => (Optional) Sequence of [min-words,max-words]
+   sentences-range => (Optional) Sequence of [min-sentences,max-sentences]
+   paras-range => (Optional) Sequence of [min-paras,max-paras]
+
    n => number of bodys
         Default 1.
    lang => :en, :hi etc
@@ -70,9 +83,7 @@
   ([]
    (paragraphs {}))
   ([{:keys [n
-            min-words max-words
-            min-sentences max-sentences
-            min-paras max-paras
+            words-range sentences-range paras-range
             lang fallback-lang]
      :or {n 1}
      :as args}]
@@ -82,6 +93,7 @@
 
 (defn word
   "Returns a single word string.
+
    lang => :en, :hi etc
            Default :en
    fallback-lang => if the given lang is missing use this lang
@@ -94,40 +106,54 @@
 
 (defn sentence
   "Returns a single sentence string.
+
+   words-range => (Optional) Sequence of [min-words,max-words]
+
    lang => :en, :hi etc
            Default :en
    fallback-lang => if the given lang is missing use this lang
                     Default :en"
   ([]
    (sentence {}))
-  ([{:keys [min-words max-words lang fallback-lang]
+  ([{:keys [words-range
+            lang fallback-lang]
      :as args}]
    (first (sentences args))))
 
 (defn paragraph
   "Returns a single paragraph string.
+
+   words-range => (Optional) Sequence of [min-words,max-words]
+   sentences-range => (Optional) Sequence of [min-sentences,max-sentences]
+
    lang => :en, :hi etc
            Default :en
    fallback-lang => if the given lang is missing use this lang
                     Default :en"
   ([]
    (paragraph {}))
-  ([{:keys [min-sentences max-sentences lang fallback-lang]
+  ([{:keys [words-range sentences-range
+            lang fallback-lang]
      :as args}]
    (first (paragraphs args))))
 
 (defn body
   "Returns a single body string.
+
+   para-sep => (Optional) String seperator between paras.
+               Default: \"<div> <br /> </div>\"
+
+   words-range => (Optional) Sequence of [min-words,max-words]
+   sentences-range => (Optional) Sequence of [min-sentences,max-sentences]
+   paras-range => (Optional) Sequence of [min-paras,max-paras]
+
    lang => :en, :hi etc
            Default :en
    fallback-lang => if the given lang is missing use this lang
                     Default :en"
   ([]
    (body {}))
-  ([{:keys [n
-            min-words max-words
-            min-sentences max-sentences
-            min-paras max-paras
+  ([{:keys [words-range sentences-range paras-range
             lang fallback-lang]
      :as args}]
    (first (bodys args))))
