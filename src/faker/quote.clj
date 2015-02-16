@@ -7,14 +7,14 @@
 
 (def quotes (util/slurp-resource "quotes.clj"))
 
-(defn quote
+(defn rand-quote
   "Gives you one random quote string out of the collection.
    lang => :en, :hi etc
            Default :en
    fallback-lang => if the given lang is missing use this lang
                     Default :en"
   ([]
-   (quote {}))
+   (rand-quote {}))
   ([{:keys [lang fallback-lang]
      :or {fallback-lang default-language
           lang default-language}}]
