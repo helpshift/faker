@@ -33,6 +33,5 @@
   [filename]
   (-> filename
       io/resource
-      io/file
       slurp
       read-string))
