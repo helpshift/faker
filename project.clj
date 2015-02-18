@@ -1,4 +1,4 @@
-(defproject helpshift/faker "0.1.1"
+(defproject helpshift/faker "0.1.2"
   :description "Helpshift's Library for generating Fake Data."
   :url "https://engineering.helpshift.com"
   :license  {:name "Eclipse Public License"
