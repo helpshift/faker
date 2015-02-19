@@ -15,7 +15,7 @@ Add dependency in your `project.clj`:
 
 ## Features:
 * Generate random strings of various units (words, sentences, paragraphs, bodys).
-* A built-in collection of words from 44 JVM-supported languages.
+* A built-in collection of words from 45 languages.
 * A built-in collection of XSS-attack-like strings to use for XSS attack testing.
 * Get random English Quotes (Useful when you want actual sentences).
 
