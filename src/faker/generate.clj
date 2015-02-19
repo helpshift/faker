@@ -7,6 +7,18 @@
   (:require [faker.util :as util]
             [faker.helper :as h]))
 
+;; Public Vars
+
+(def available-languages
+  "Returns a map of key => language code and value as the language name
+   supported by this namespace.
+   The map is sorted by language name (for readability purpose)"
+  (let [locale-map (h/available-languages*)]
+    (into (sorted-map-by (fn [k1 k2]
+                           (compare (locale-map k1)
+                                    (locale-map k2))))
+          locale-map)))
+
 ;; Public Functions to generate a list of word/sentence/paragraph/body
 
 (defn words

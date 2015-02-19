@@ -46,6 +46,12 @@ If you would like to specifiy the language say french, pass the language code.
 "la plaie""
 ```
 
+To find out supported language codes:
+```clojure
+> gen/available-languages
+{"sq" "Albanian", "ar" "Arabic", .... }
+```
+
 Here's an example of generating random english sentence of varying word size between 1 to 10 (both inclusive).
 ```clojure
 > (gen/sentence {:words-range [1,10]})

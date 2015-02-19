@@ -2,7 +2,8 @@
   "Contains helper function for creating random data."
   {:author "Mayank Jain <mayank@helpshift.com>"}
   (:require [clojure.string :as cs]
-            [faker.util :as util]))
+            [faker.util :as util])
+  (:import [java.util Locale]))
 
 (def default-language :en)
 
@@ -81,3 +82,19 @@
                   paras-range
                   para-sep
                   ""))
+
+(def ^{:doc "Special Case handling of Chinese since chinese traditional is not available in the JVM."}
+  special-language-name {"zh" "Chinese (Simplified)"
+                         "zh-hant" "Chinese (Traditional)"})
+
+
+(defn available-languages*
+  "Get all the available languages from the Locale class"
+  []
+  (merge (reduce (fn [m ^Locale l]
+                   (assoc m
+                     (.getLanguage l)
+                     (.getDisplayLanguage l)))
+                 {}
+                 (Locale/getAvailableLocales))
+         special-language-name))

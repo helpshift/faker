@@ -21,3 +21,9 @@
    (rand-nth (util/get-with-fallback-key quotes
                                          lang
                                          fallback-lang))))
+
+(def available-languages
+  "Returns a map of key => language code and value as the language name
+   supported by this namespace.
+  The map is sorted by language name (for readability purpose)"
+  {"en" "English"})
