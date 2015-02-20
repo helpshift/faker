@@ -1,3 +1,8 @@
+### Change between faker 0.1.2 and 0.2.0
+* Add support for Chinese (Traditional).
+* Add available-languages for faker.generate & faker.quote namespace.
+* Fix documentation.
+
 ### Change between faker 0.1.1 and 0.1.2
 * Add changelog.
 * Fix documentation.
