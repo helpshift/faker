@@ -1,0 +1,106 @@
+
+
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="google" value="notranslate">
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+
+    <title>faker</title>
+
+    
+  <link href='http://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/languages/clojure.min.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/magula.min.css">
+
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.min.js"></script>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-cookies.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.min.js"></script>
+  <script type="text/javascript" src="js/angular-highlightjs.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/rdash.min.css">
+  <link rel="stylesheet" type="text/css" href="css/scrollspy.css">
+
+
+  <script>
+    window.console = window.console || function(t) {};
+    window.open = function(){ console.log("window.open is disabled."); };
+    window.print   = function(){ console.log("window.print is disabled."); };
+  </script>
+
+  <script>
+    var app = angular.module('app', ['hljs']);
+  </script>
+  </head>
+
+  <body ng-app="app" data-spy="scroll" data-target=".scrollspy">
+  <!-- Fixed navbar -->
+    <nav class="navbar navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><img src="img/logo-white.png"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="https://github.com/helpshift/faker" target="_blank">Github</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+  <div class="container row">
+    <div class="col-md-4 scrollspy pull-right">
+      <ul id="nav" class="nav hidden-xs hidden-sm" data-spy="affix">
+        <li><a href="#introduction">1  &nbsp;&nbsp; Introduction</a><ul class="nav"><li><a href="#overview">1.1  &nbsp;&nbsp; Overview</a></li><li><a href="#installation">1.2  &nbsp;&nbsp; Installation</a></li></ul></li><li><a href="#usage">2  &nbsp;&nbsp; Usage</a><ul class="nav"><li><a href="#random-words">2.1  &nbsp;&nbsp; Random Words</a></li><li><a href="#random-sentences">2.2  &nbsp;&nbsp; Random Sentences</a></li><li><a href="#multilingual">2.3  &nbsp;&nbsp; Multilingual</a></li><li><a href="#random-quotes">2.4  &nbsp;&nbsp; Random Quotes</a></li></ul></li><li><a href="#links">3  &nbsp;&nbsp; Links</a></li>
+      </ul>
+    </div>
+    <div class="col-md-8" id="content">
+      <div class="jumbotron">
+        <div class="container">
+          <h1>faker</h1>
+          <h4>generation of fake data</h4>
+        </div>
+      </div>
+      <section class="chapter" id="introduction"><h2 class="chapter">1  &nbsp;&nbsp; Introduction</h2><section class="section" id="overview"><h3 class="section">1.1  &nbsp;&nbsp; Overview</h3><div class="paragraph"><p><a href='https://www.github.com/helpshift/faker'>faker</a> is a library for generating string-like inputs for testing data. It currents supports output of:</p><ul><li>Random strings of various units (words, sentences, paragraphs, bodys).</li><li>A built-in collection of words from 45 languages.</li><li>A built-in collection of XSS-attack-like strings to use for XSS attack testing.</li><li>Random English Quotes (Useful when you want actual sentences).</li></ul></div></section><section class="section" id="installation"><h3 class="section">1.2  &nbsp;&nbsp; Installation</h3><div class="paragraph"><p>In your project.clj, add faker to the <code>&#91;:profiles :dev :dependencies&#93;</code> entry:</p><pre><code class="clojure">&#40;defproject ...
+    ...
+    :profiles {:dev {:dependencies &#91;...
+                                    &#91;helpshift/faker &quot;0.2.0&quot;&#93;
+                                    ...&#93;}}
+    ...&#41;
+</code></pre></div><div class="paragraph"><p>All functionality is the <code>faker.generate</code> namespace:</p></div><div class="code"><div hljs="hljs" language="clojure" no-escape="no-escape">(require '[faker.generate :as gen])</div></div></section></section><section class="chapter" id="usage"><h2 class="chapter">2  &nbsp;&nbsp; Usage</h2><section class="section" id="random-words"><h3 class="section">2.1  &nbsp;&nbsp; Random Words</h3></section><section class="section" id="random-sentences"><h3 class="section">2.2  &nbsp;&nbsp; Random Sentences</h3></section><section class="section" id="multilingual"><h3 class="section">2.3  &nbsp;&nbsp; Multilingual</h3></section><section class="section" id="random-quotes"><h3 class="section">2.4  &nbsp;&nbsp; Random Quotes</h3></section></section><section class="chapter" id="links"><h2 class="chapter">3  &nbsp;&nbsp; Links</h2><div class="group"></div></section>
+    </div>
+</div><!--end of .container-->
+
+</body>
+
+<script>
+  $('#nav').affix({
+    offset: {
+        top: $('#nav').offset().top,
+        bottom: $('footer').outerHeight(true) + $('.application').outerHeight(true) + 40
+    }});
+</script>
+
+
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+</body>
+</html>
