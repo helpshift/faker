@@ -42,4 +42,6 @@
 
 [[:section {:title "Random Quotes"}]]
 
+[[:chapter {:title ""}]]
+
 [[:chapter {:title "Links"}]]
