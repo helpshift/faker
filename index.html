@@ -66,7 +66,7 @@
   <div class="container row">
     <div class="col-md-4 scrollspy pull-right">
       <ul id="nav" class="nav hidden-xs hidden-sm" data-spy="affix">
-        <li><a href="#introduction">1  &nbsp;&nbsp; Introduction</a><ul class="nav"><li><a href="#overview">1.1  &nbsp;&nbsp; Overview</a></li><li><a href="#installation">1.2  &nbsp;&nbsp; Installation</a></li></ul></li><li><a href="#usage">2  &nbsp;&nbsp; Usage</a><ul class="nav"><li><a href="#random-words">2.1  &nbsp;&nbsp; Random Words</a></li><li><a href="#random-sentences">2.2  &nbsp;&nbsp; Random Sentences</a></li><li><a href="#multilingual">2.3  &nbsp;&nbsp; Multilingual</a></li><li><a href="#random-quotes">2.4  &nbsp;&nbsp; Random Quotes</a></li></ul></li><li><a href="#links">3  &nbsp;&nbsp; Links</a></li>
+        <li><a href="#introduction">1  &nbsp;&nbsp; Introduction</a><ul class="nav"><li><a href="#overview">1.1  &nbsp;&nbsp; Overview</a></li><li><a href="#installation">1.2  &nbsp;&nbsp; Installation</a></li></ul></li><li><a href="#usage">2  &nbsp;&nbsp; Usage</a><ul class="nav"><li><a href="#random-words">2.1  &nbsp;&nbsp; Random Words</a></li><li><a href="#random-sentences">2.2  &nbsp;&nbsp; Random Sentences</a></li><li><a href="#multilingual">2.3  &nbsp;&nbsp; Multilingual</a></li><li><a href="#random-quotes">2.4  &nbsp;&nbsp; Random Quotes</a></li></ul></li><li><a href="#references">3  &nbsp;&nbsp; References</a></li><li><a href="#links">4  &nbsp;&nbsp; Links</a></li>
       </ul>
     </div>
     <div class="col-md-8" id="content">
@@ -82,7 +82,21 @@
                                     &#91;helpshift/faker &quot;0.2.0&quot;&#93;
                                     ...&#93;}}
     ...&#41;
-</code></pre></div><div class="paragraph"><p>All functionality is the <code>faker.generate</code> namespace:</p></div><div class="code"><div hljs="hljs" language="clojure" no-escape="no-escape">(require '[faker.generate :as gen])</div></div></section></section><section class="chapter" id="usage"><h2 class="chapter">2  &nbsp;&nbsp; Usage</h2><section class="section" id="random-words"><h3 class="section">2.1  &nbsp;&nbsp; Random Words</h3></section><section class="section" id="random-sentences"><h3 class="section">2.2  &nbsp;&nbsp; Random Sentences</h3></section><section class="section" id="multilingual"><h3 class="section">2.3  &nbsp;&nbsp; Multilingual</h3></section><section class="section" id="random-quotes"><h3 class="section">2.4  &nbsp;&nbsp; Random Quotes</h3></section></section><section class="chapter" id="links"><h2 class="chapter">3  &nbsp;&nbsp; Links</h2><div class="group"></div></section>
+</code></pre></div><div class="paragraph"><p>All functionality is the <code>faker.generate</code> namespace:</p></div><div class="code"><div hljs="hljs" language="clojure" no-escape="no-escape">(require '[faker.generate :as gen])</div></div></section></section><section class="chapter" id="usage"><h2 class="chapter">2  &nbsp;&nbsp; Usage</h2><section class="section" id="random-words"><h3 class="section">2.1  &nbsp;&nbsp; Random Words</h3><div class="code"><a name="source-faker-core--words"></a><h5>e.2.1  &nbsp;-&nbsp; source of <i>faker.core/words</i></h5><div hljs="hljs" language="clojure" no-escape="no-escape">(defn words
+  ([]
+   (words {}))
+  ([{:keys [n]
+     :or {n 1}
+     :as args}]
+   (take n (h/lazy-words args))))</div></div><div class="code"><a name="docs-faker-core--words"></a><h5>e.2.2  &nbsp;-&nbsp; docs of <i>faker.core/words</i></h5><div hljs="hljs" language="clojure" no-escape="no-escape">&quot;Returns a list of words, the default is to return a single word&quot;
+(words) =&gt; (contains [string?])
+
+
+&quot;The default language is :en&quot;
+(words {:n 10}) =&gt; (ten-of string?)
+
+&quot;Other languages are possible&quot;
+(words {:n 10 :lang :de}) =&gt; (ten-of string?)</div></div></section><section class="section" id="random-sentences"><h3 class="section">2.2  &nbsp;&nbsp; Random Sentences</h3></section><section class="section" id="multilingual"><h3 class="section">2.3  &nbsp;&nbsp; Multilingual</h3></section><section class="section" id="random-quotes"><h3 class="section">2.4  &nbsp;&nbsp; Random Quotes</h3></section></section><section class="chapter" id="references"><h2 class="chapter">3  &nbsp;&nbsp; References</h2><div class="group"></div></section><section class="chapter" id="links"><h2 class="chapter">4  &nbsp;&nbsp; Links</h2><div class="group"></div></section>
     </div>
 </div><!--end of .container-->
 
