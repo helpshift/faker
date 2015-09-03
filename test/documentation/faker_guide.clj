@@ -1,6 +1,7 @@
 (ns documentation.faker-guide
   (:use midje.sweet)
-  (:require [faker.generate :as gen]))
+  (:require [faker.generate :as gen]
+            [faker.core :refer :all]))
 
 [[:chapter {:title "Introduction"}]]
 
@@ -36,12 +37,16 @@
 
 [[:section {:title "Random Words"}]]
 
+[[:reference {:refer faker.core/words :mode :source}]]
+
+[[:reference {:refer faker.core/words :mode :docs}]]
+
 [[:section {:title "Random Sentences"}]]
 
 [[:section {:title "Multilingual"}]]
 
 [[:section {:title "Random Quotes"}]]
 
-[[:chapter {:title ""}]]
+[[:chapter {:title "References"}]]
 
 [[:chapter {:title "Links"}]]

@@ -6,13 +6,13 @@
 (defn words
   "Returns a list of words, the default is to return a single word
    (words) => (contains [string?])
- 
+
    The default language is :en
-   
+
    (words {:n 10}) => (ten-of string?)
- 
+
    Other languages are possible
-   
+
    (words {:n 10 :lang :de}) => (ten-of string?)"
   {:added "0.2"}
   ([]
@@ -21,4 +21,3 @@
      :or {n 1}
      :as args}]
    (take n (h/lazy-words args))))
-ge
